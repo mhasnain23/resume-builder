@@ -5,11 +5,17 @@ var previewEmail = document.getElementById('previewEmail');
 var previewExperience = document.getElementById('previewExperience');
 var previewEducation = document.getElementById('previewEducation');
 var previewSkills = document.getElementById('previewSkills');
+var shareLink = document.getElementById('shareLink');
 var clearBtn = document.getElementById('clearBtn');
 var downloadPDFBtn = document.getElementById('downloadPDF');
 var editBtn = document.getElementById('editBtn');
 var saveChangesBtn = document.getElementById('saveChangesBtn');
 var cancelEditBtn = document.getElementById('cancelEditBtn');
+var usernameInput = document.getElementById('username');
+function generateUniqueURL(username) {
+    var baseURL = 'https://milestone5-resume-builder.vercel.app/resume/';
+    return "".concat(baseURL).concat(encodeURIComponent(username));
+}
 // Load from localStorage when page loads
 window.addEventListener('load', function () {
     var savedData = localStorage.getItem('resumeData');
@@ -20,8 +26,33 @@ window.addEventListener('load', function () {
         document.getElementById('experience').value = data.experience;
         document.getElementById('education').value = data.education;
         document.getElementById('skills').value = data.skills;
+        document.getElementById('username').value = data.username;
         updatePreview(data);
+        if (data.username) {
+            var uniqueURL = generateUniqueURL(data.username);
+            shareLink.href = uniqueURL;
+            shareLink.innerText = "Share your resume: ".concat(uniqueURL);
+        }
     }
+});
+// Generate Resume button functionality
+var generateBtn = document.getElementById('generateBtn');
+generateBtn.addEventListener('click', function () {
+    // Enable all form inputs
+    form.querySelectorAll('input, textarea').forEach(function (element) {
+        element.disabled = false;
+    });
+    // Update resume preview with current form data
+    updatePreview({
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        experience: document.getElementById('experience').value,
+        education: document.getElementById('education').value,
+        skills: document.getElementById('skills').value,
+        username: document.getElementById('username').value
+    });
+    // Save data to localStorage
+    saveData();
 });
 // Form submit event listener
 form.addEventListener('submit', function (e) {
@@ -32,7 +63,8 @@ form.addEventListener('submit', function (e) {
         email: document.getElementById('email').value,
         experience: document.getElementById('experience').value,
         education: document.getElementById('education').value,
-        skills: document.getElementById('skills').value
+        skills: document.getElementById('skills').value,
+        username: document.getElementById('username').value
     });
 });
 // Save data to localStorage and preview
@@ -42,8 +74,9 @@ function saveData() {
     var experience = document.getElementById('experience').value;
     var education = document.getElementById('education').value;
     var skills = document.getElementById('skills').value;
+    var username = document.getElementById('username').value;
     // Save the data to localStorage
-    var resumeData = { fullName: fullName, email: email, experience: experience, education: education, skills: skills };
+    var resumeData = { fullName: fullName, email: email, experience: experience, education: education, skills: skills, username: username };
     localStorage.setItem('resumeData', JSON.stringify(resumeData));
 }
 // Update resume preview
@@ -53,6 +86,11 @@ function updatePreview(data) {
     previewExperience.innerText = data.experience;
     previewEducation.innerText = data.education;
     previewSkills.innerText = data.skills;
+    if (data.username) {
+        var uniqueURL = generateUniqueURL(data.username);
+        shareLink.href = uniqueURL;
+        shareLink.innerText = "Share your resume: ".concat(uniqueURL);
+    }
 }
 // Clear button functionality
 clearBtn.addEventListener('click', function () {
@@ -62,14 +100,8 @@ clearBtn.addEventListener('click', function () {
     previewExperience.innerText = '';
     previewEducation.innerText = '';
     previewSkills.innerText = '';
+    // Clear localStorage
     localStorage.removeItem('resumeData');
-});
-var generateBtn = document.getElementById('generateBtn');
-generateBtn.addEventListener('click', function () {
-    // Enable all form inputs
-    form.querySelectorAll('input, textarea').forEach(function (element) {
-        element.disabled = false;
-    });
 });
 // PDF Download functionality
 downloadPDFBtn.addEventListener('click', function () {
@@ -102,11 +134,10 @@ saveChangesBtn.addEventListener('click', function () {
         experience: document.getElementById('experience').value,
         education: document.getElementById('education').value,
         skills: document.getElementById('skills').value,
+        username: document.getElementById('username').value
     });
     form.querySelectorAll('input, textarea').forEach(function (element) {
-        if (localStorage.getItem('resumeData')) {
-            element.disabled = true;
-        }
+        element.disabled = true;
     });
     editBtn.style.display = 'inline';
     saveChangesBtn.style.display = 'none';
@@ -122,11 +153,23 @@ cancelEditBtn.addEventListener('click', function () {
         document.getElementById('experience').value = data.experience;
         document.getElementById('education').value = data.education;
         document.getElementById('skills').value = data.skills;
+        document.getElementById('username').value = data.username;
         form.querySelectorAll('input, textarea').forEach(function (element) {
             element.disabled = true;
         });
         editBtn.style.display = 'inline';
-        saveChangesBtn.style.display = 'none';
-        cancelEditBtn.style.display = 'none';
+        saveChangesBtn.style.display;
+    }
+});
+usernameInput.addEventListener('input', function () {
+    var username = usernameInput.value;
+    if (username) {
+        var uniqueURL = generateUniqueURL(username);
+        shareLink.href = uniqueURL;
+        shareLink.innerText = "Share your resume: ".concat(uniqueURL);
+    }
+    else {
+        shareLink.href = '';
+        shareLink.innerText = 'Enter a username to generate a shareable link';
     }
 });
