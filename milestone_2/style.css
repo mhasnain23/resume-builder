@@ -51,11 +51,13 @@ textarea {
 }
 
 button {
+    border-radius: 8px;
     padding: 10px 20px;
     background: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
