@@ -17,8 +17,8 @@ const cancelEditBtn = document.getElementById('cancelEditBtn') as HTMLButtonElem
 const usernameInput = document.getElementById('username') as HTMLInputElement;
 
 function generateUniqueURL(username: string): string {
-    const baseURL = 'https://milestone5-resume-builder.vercel.app/resume/';
-    return `${baseURL}${encodeURIComponent(username)}`;
+    const baseURL = 'https://milestone5-resume-builder.vercel.app/resume.html';
+    return `${baseURL}?username=${encodeURIComponent(username)}`;
 }
 
 

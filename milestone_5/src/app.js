@@ -13,8 +13,8 @@ var saveChangesBtn = document.getElementById('saveChangesBtn');
 var cancelEditBtn = document.getElementById('cancelEditBtn');
 var usernameInput = document.getElementById('username');
 function generateUniqueURL(username) {
-    var baseURL = 'https://milestone5-resume-builder.vercel.app/resume/';
-    return "".concat(baseURL).concat(encodeURIComponent(username));
+    var baseURL = 'https://milestone5-resume-builder.vercel.app/resume.html';
+    return "".concat(baseURL, "?username=").concat(encodeURIComponent(username));
 }
 // Load from localStorage when page loads
 window.addEventListener('load', function () {
