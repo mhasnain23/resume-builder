@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Resume Builder</h1>
+
+
+    <div class="form_container">
+
+        <form id="resumeForm">
+            <div>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience"></textarea>
+            </div>
+            <div>
+                <label for="education">Education:</label>
+                <textarea id="education" name="education" placeholder="Degree, Institution, Year"></textarea>
+            </div>
+            <div>
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" placeholder="e.g. HTML, CSS, JavaScript"></textarea>
+            </div>
+
+            <button id="generateBtn" type="submit">Generate Resume</button>
+            <button type="button" id="clearBtn">Clear</button>
+            <button type="button" id="downloadPDF">Download PDF</button>
+            <button type="button" id="editBtn">Edit</button>
+            <button type="button" id="saveChangesBtn" style="display: none;">Save Changes</button>
+            <button type="button" id="cancelEditBtn" style="display: none;">Cancel Edit</button>
+        </form>
+    </div>
+
+    <!-- Resume Preview -->
+    <div id="resumePreview">
+        <h2 style="font-size: xx-large; color:#007BFF;">Your Resume</h2>
+        <p style="font-size: 15px; font-weight: 600;"><strong>Name:</strong> <span id="previewName"></span></p>
+        <p style="font-size: 15px; font-weight: 600;"><strong>Email:</strong> <span id="previewEmail"></span></p>
+        <p style="font-size: 15px; font-weight: 600;"><strong>Experience:</strong> <span id="previewExperience"></span>
+        </p>
+        <p style="font-size: 15px; font-weight: 600;"><strong>Education:</strong> <span id="previewEducation"></span>
+        </p>
+        <p style="font-size: 15px; font-weight: 600;"><strong>Skills:</strong> <span id="previewSkills"></span></p>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</body>
+
+</html>
