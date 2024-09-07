@@ -1,43 +1,135 @@
-body {
-    font-family: Arial, sans-serif;
+
+/* General reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-h1 {
-    text-align: center;
-}
-
-form,
-#resumePreview {
-    max-width: 600px;
-    margin: 20px auto;
-    border-radius: 10px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    line-height: 1.6;
+    color: #c1c1c1;
     padding: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 700;
+    padding: 20px 10px;
+}
+
+/* Resume container */
+.resume {
+    max-width: 900px;
+    margin: 0 auto;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-form div {
-    margin-bottom: 15px;
+/* Header section */
+header {
+    background-color: #5100ff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+
+.header-content h1 {
+    font-size: 2.5rem;
 }
 
+.header-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+.img {
+   border-radius: 50px;
+   width: 60px;
+   height: 60px;
+   border: 1px solid white;
+}
+.img img {
+    object-fit: cover;
+    border-radius: 50px;
+}
+/* Section styling */
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #5100ff;
+    border-bottom: 2px solid #000000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Profile section */
+.profile p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Education and contact sections */
+.education ul,
+.contact ul,
+.languages ul {
+    list-style-type: none;
+    font-size: 1rem;
+    color: #555;
+}
+
+ul li {
+    padding: 5px 0;
+}
+
+/* Skills toggle button */
 button {
-    padding: 10px 20px;
-    background: #007BFF;
+    background-color: #5100ff;
     color: white;
     border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background: #0056b3;
+    background-color: #5100ff;
+}
+
+.hidden {
+    display: none;
+}
+
+#skills ul {
+    list-style: square inside;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Miscellaneous */
+a {
+    color: #5100ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

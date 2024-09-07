@@ -1,23 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Resume Builder</h1>
 
+    <div class="resume">
+        <header>
+            <div class="header-content">
+                <h1>Muhammad Hasnain</h1>
+                <p>Web Developer</p>
+            </div>
+            <div class="img">
+                <img src="/milestone_1_2/src/images/myimg-removebg-preview-removebg-preview.png" width="60px" height="60px" alt="profile" />
+            </div>
+        </header>
+
+        <section class="profile">
+            <h2>Profile Summary</h2>
+            <p>
+                TypeScript, React-based web developer full of enthusiasm. Excited
+                about creating web experiences with a heavy focus on the user.
+                Front-end developer with a lot of imagination and attention to detail,
+                proficient in HTML, CSS, TypeScript, and React.JS. Strong in back-end
+                technologies like Nextjs, NodeJS, ExpressJS, and MongoDB.
+            </p>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <strong>Secondory School</strong> - Matriculation with
+                    Science (2024 - 2025)
+                </li>
+                <li>
+                    <strong>Governor IT Course</strong> certificate cloud Applied GenAI Engineer
+                </li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contact</h2>
+            <ul>
+                <li><strong>Phone:</strong> +92 312 1234567</li>
+                <li>
+                    <strong>Email:</strong>
+                    <a href="mailto:kareeminam2@gmail.com">jhondoe@gmail.com</a>
+                </li>
+                <li><strong>Location:</strong> Korangi no 2, Karachi</li>
+            </ul>
+        </section>
+
+        <section class="languages">
+            <h2>Languages</h2>
+            <ul>
+                <li>English (Intermediate)</li>
+                <li>Urdu (Fluent)</li>
+            </ul>
+        </section>
+
+        <section id="skills" class="skills hidden">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>TypeScript</li>
+                <li>React.JS</li>
+                <li>TailwindCSS</li>
+                <li>Node.JS</li>
+                <li>Express.JS</li>
+                <li>MongoDB</li>
+                <li>Session & Cookies</li>
+            </ul>
+        </section>
+
+        <button id="toggleSkills">View Skills</button>
+    </div>
+
+
     <!-- Input Form -->
-     <div>
-         <form id="resumeForm">
-             <!-- your Resume code is here -->
-            </form>
-        </div>
+    <div>
+        <form id="resumeForm">
+            <!-- your Resume code is here -->
+        </form>
+    </div>
 
- 
 
-    <script src="app.js"></script>
+
+    <script src="app.js" type="module"></script>
 </body>
+
 </html>
