@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Resume Builder</h1>
+
+
+    <div class="form_container">
+
+        <form id="resumeForm">
+            <div>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience"></textarea>
+            </div>
+
+            <!-- New Section: Education -->
+            <div>
+                <label for="education">Education:</label>
+                <textarea id="education" name="education" placeholder="Degree, Institution, Year"></textarea>
+            </div>
+
+            <!-- New Section: Skills -->
+            <div>
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" placeholder="e.g. HTML, CSS, JavaScript"></textarea>
+            </div>
+
+            <button type="submit">Generate Resume</button>
+            <button type="button" id="clearBtn">Clear</button>
+            <button type="button" id="downloadPDF">Download PDF</button>
+        </form>
+    </div>
+
+    <!-- Resume Preview -->
+    <div id="resumePreview">
+        <h2 style="font-size: xx-large; color:#007BFF;">Your Resume</h2>
+        <p><strong>Name:</strong> <span class="prewiew_text" id="previewName"></span></p>
+        <p><strong>Email:</strong> <span class="prewiew_text" id="previewEmail"></span></p>
+        <p><strong>Experience:</strong> <span id="previewExperience"></span></p>
+
+        <!-- New Section: Preview Education -->
+        <p><strong>Education:</strong> <span class="prewiew_text" id="previewEducation"></span></p>
+
+        <!-- New Section: Preview Skills -->
+        <p><strong>Skills:</strong> <span class="prewiew_text" id="previewSkills"></span></p>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</body>
+
+</html>
