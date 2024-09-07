@@ -20,30 +20,55 @@
         <p style="font-size: 15px; font-weight: 600;"><strong>Skills:</strong> <span id="previewSkills"></span></p>
     </div>
 
+    <div class="footer">
+
+        <a id="shareLink" href="#">Share your resume</a>
+        <button id="copyURLBtn">Copy URL</button>
+    </div>
+
+
 
     <script>
         // Get the username from the query parameters
-const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username');
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
 
-if (username) {
-    // Load the resume data from localStorage based on the username
-    const savedData = JSON.parse(localStorage.getItem('resumeData') || '{}');
+        if (username) {
+            // Load the resume data from localStorage based on the username
+            const savedData = JSON.parse(localStorage.getItem('resumeData') || '{}');
 
-    if (savedData.username === username) {
-        
-        // Populate the resume preview with saved data
-        document.getElementById('previewName').innerText = savedData.fullName;
-        document.getElementById('previewEmail').innerText = savedData.email;
-        document.getElementById('previewExperience').innerText = savedData.experience;
-        document.getElementById('previewEducation').innerText = savedData.education;
-        document.getElementById('previewSkills').innerText = savedData.skills;
-    } else {
-        alert('Resume not found for this user.');
-    }
-} else {
-    alert('No username provided in the URL.');
-}
+            if (savedData.username === username) {
+
+                // Populate the resume preview with saved data
+                document.getElementById('previewName').innerText = savedData.fullName;
+                document.getElementById('previewEmail').innerText = savedData.email;
+                document.getElementById('previewExperience').innerText = savedData.experience;
+                document.getElementById('previewEducation').innerText = savedData.education;
+                document.getElementById('previewSkills').innerText = savedData.skills;
+            } else {
+                alert('Resume not found for this user.');
+            }
+        } else {
+            alert('No username provided in the URL.');
+        }
+
+        const copyURLBtn = document.getElementById('copyURLBtn');
+
+        copyURLBtn.addEventListener('click', () => {
+            const linkToCopy = shareLink.href;
+
+            if (linkToCopy) {
+                // Use the Clipboard API to copy the link
+                navigator.clipboard.writeText(linkToCopy).then(() => {
+                    alert('URL copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy the URL: ', err);
+                });
+            } else {
+                alert('No URL to copy.');
+            }
+        });
+
 
     </script>
 </body>
